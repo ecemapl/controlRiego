@@ -45,7 +45,7 @@ def handle(msg):
     bot.sendMessage(chat_id, estado)
     elif command == 'Estado':
     bot.sendMessage(chat_id, str(estado))
-    elif command == "Actualiza Programa"
+    elif command == "Actualiza Programa":
     call(["cd", "/home/pi/controlRiego"])
     call(["git", "pull", "--rebase"])
     bot.sendMessage(chat_id, command)
