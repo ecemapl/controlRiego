@@ -26,31 +26,31 @@ def handle(msg):
 #    print 'Got command: %s' % command
     
     if command == 'Toma foto':
-        call(["fswebcam", "-q", "/home/pi/image.jpg"])
-	f = open('/home/pi/image.jpg', 'rb')
-        bot.sendPhoto(chat_id, f)
+    call(["fswebcam", "-q", "/home/pi/image.jpg"])
+    f = open('/home/pi/image.jpg', 'rb')
+    bot.sendPhoto(chat_id, f)
     elif command == 'Enciende':
-		GPIO.output(14, False)
-		GPIO.output(15, False)
-		GPIO.output(18, False)
-		estado = 'Sistema encendido'
+    GPIO.output(14, False)
+    GPIO.output(15, False)
+    GPIO.output(18, False)
+    estado = 'Sistema encendido'
 #	print 'Sistema encendido'
-		bot.sendMessage(chat_id, estado)
+    bot.sendMessage(chat_id, estado)
     elif command == 'Apaga':
-		GPIO.output(14, True)
-		GPIO.output(15, True)
-		GPIO.output(18, True)
-		estado = 'Sistema apagado'
+    GPIO.output(14, True)
+    GPIO.output(15, True)
+    GPIO.output(18, True)
+    estado = 'Sistema apagado'
 #	print 'Sistema apagado'
-		bot.sendMessage(chat_id, estado)
+    bot.sendMessage(chat_id, estado)
     elif command == 'Estado':
-        bot.sendMessage(chat_id, str(estado))
+    bot.sendMessage(chat_id, str(estado))
     elif command == "Actualiza Programa"
-    	call(["cd", "/home/pi/controlRiego"])
-    	call(["git", "pull", "--rebase"])
-    	bot.sendMessage(chat_id, "Programa cambiado, reiniciando")
-    	time.sleep(5)
-    	call(["sudo", "reboot", "now"])
+    call(["cd", "/home/pi/controlRiego"])
+    call(["git", "pull", "--rebase"])
+    bot.sendMessage(chat_id, "Programa cambiado, reiniciando")
+    time.sleep(5)
+    call(["sudo", "reboot", "now"])
 
 def IsInternetUp():
 	testConn = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
