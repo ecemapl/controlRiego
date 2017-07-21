@@ -8,6 +8,7 @@ import urllib2
 from telepot.loop import MessageLoop
 from subprocess import call
 import RPi.GPIO as GPIO
+import os
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -46,11 +47,10 @@ def handle(msg):
     elif command == 'Estado':
         bot.sendMessage(chat_id, str(estado))
     elif command == "Actualiza Programa":
-        call(["cd", "/home/pi/controlRiego"])
-        call(["git", "pull", "--rebase"])
-        bot.sendMessage(chat_id, command)
+        os.system("cd /home/pi/controlRiego")
+        os.system("git pull --rebase")
         time.sleep(5)
-        call(["sudo", "reboot", "now"])
+        os.system("sudo reboot now")
 
 def IsInternetUp():
 	testConn = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
