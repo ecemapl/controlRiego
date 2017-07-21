@@ -51,7 +51,6 @@ def handle(msg):
     elif command == "Actualiza Programa":
         os.system("cd /home/pi/controlRiego")
         os.system("git pull --rebase")
-        time.sleep(5)
         os.system("sudo reboot now")
 
 def IsInternetUp():
