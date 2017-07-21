@@ -48,7 +48,7 @@ def handle(msg):
     elif command == "Actualiza Programa"
     call(["cd", "/home/pi/controlRiego"])
     call(["git", "pull", "--rebase"])
-    bot.sendMessage(chat_id, "Programa cambiado, reiniciando")
+    bot.sendMessage(chat_id, command)
     time.sleep(5)
     call(["sudo", "reboot", "now"])
 
