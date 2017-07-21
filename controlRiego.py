@@ -8,7 +8,7 @@ import urllib2
 from telepot.loop import MessageLoop
 from subprocess import call
 import RPi.GPIO as GPIO
-
+#prueba
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(14, GPIO.OUT) ## GPIO 14 para la valvula 1
