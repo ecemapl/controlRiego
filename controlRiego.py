@@ -23,6 +23,8 @@ def handle(msg):
     command = msg['text']
     
     global estado
+    
+    bot.sendMessage(chat_id, command)
 
 #    print 'Got command: %s' % command
     
